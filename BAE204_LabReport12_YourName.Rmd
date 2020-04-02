@@ -1,0 +1,51 @@
+---
+title: "BAE 204 - Lab #12: Calculate nitrate removal kinetics in a wetland : Report"
+author: "your name"
+date: "4/2/2020"
+output:
+  html_document: default
+  pdf_document: default
+  word_document: default
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(fig.height=5, fig.width=9, fig.align="center", echo = FALSE)
+```
+
+# Exercise 1: Explore the content of the data and first plot
+
+I was given a first file ("infreq_Exp06_Rep2_U0.csv") of nitrate concentration decrease over time in a mesocosm experiment. First I plotted the nitrate concentration decrease as a function of time expressed in days. 
+
+```{r, echo=TRUE, eval=TRUE}
+data<-read.csv(file="https://raw.githubusercontent.com/francoisbirgand/BAE204-removal_kinetics_lab/master/infreq_Exp06_Rep2_U0.csv",header = TRUE) #Reads file into table format
+
+######## Add below 
+```
+
+</br></br>
+
+# Exercise 2 : Fitting a first order rate model for nitrate removal in a wetland
+
+
+</br></br>
+
+# Exercise 3 : Fitting a first order rate model by calculating mass transfer coefficient   
+
+
+</br></br>
+
+# Exercice 4: Treatment time for stagnant water
+
+
+</br></br>
+
+# Exercise 5: Treatment time for water recirculated at 3 cm/s
+
+```{r, echo=TRUE, eval=TRUE}
+data2<-read.csv(file="https://raw.githubusercontent.com/francoisbirgand/BAE204-removal_kinetics_lab/master/Exp03_Rep3_U3.csv",header = TRUE) #Reads file into table format
+
+```
+
+</br></br>
+
+## Exercise 6: Discuss your observations 
