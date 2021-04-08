@@ -1,7 +1,7 @@
 ---
 title: "BAE 204 - Lab #12: Calculate nitrate removal kinetics in a wetland : Report"
 author: "your name"
-date: "4/2/2020"
+date: "4/8/2021"
 output:
   html_document: default
   pdf_document: default
@@ -18,7 +18,14 @@ I was given a first file ("infreq_Exp06_Rep2_U0.csv") of nitrate concentration d
 
 ```{r, echo=TRUE, eval=TRUE}
 data<-read.csv(file="https://raw.githubusercontent.com/francoisbirgand/BAE204-removal_kinetics_lab/master/infreq_Exp06_Rep2_U0.csv",header = TRUE) #Reads file into table format
-
+timeday <- data$time/24/3600
+conc <- data$conc
+xlimtime <- range(timeday)
+ylimconc <- range(conc)
+plot(timeday,conc,
+     xlim = xlimtime, ylim = ylimconc,
+     xlab = "time in days", ylab = "nitrate concentrations (mg N/L)",
+     main = "title")
 ######## Add below 
 ```
 
@@ -26,13 +33,38 @@ data<-read.csv(file="https://raw.githubusercontent.com/francoisbirgand/BAE204-re
 
 # Exercise 2 : Fitting a first order rate model for nitrate removal in a wetland
 
+\[
+C(t)=C_0e^{-\frac{\rho}{D}(t-t_0)}
+\]
+
+\[
+\frac{C(t)}{C_0}=e^{-\frac{\rho}{D}(t-t_0)}
+\]
+
+\[
+\ln{\frac{C(t)}{C_0}}=-\frac{\rho}{D}(t-t_0)
+\]
 
 </br></br>
 
 # Exercise 3 : Fitting a first order rate model by calculating mass transfer coefficient   
 
+```{r, echo=TRUE, eval=TRUE}
+x <- timeday - timeday[1]
+y <- log(conc/conc[1])
+plot(x,y)
+linreg <- lm(y~x+0)
+abline(linreg)
+slope <- linreg$coefficients
+rho <- -slope*0.1
+signif(rho,2)
 
+######## Add below 
+```
 </br></br>
+
+The value that I calculated is `r signif(rho,2)` proper unit.
+
 
 # Exercice 4: Treatment time for stagnant water
 
